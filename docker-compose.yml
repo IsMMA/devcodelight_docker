@@ -6,8 +6,13 @@ services:
 
 #Aquí indicamos el nombre que queramos
   mi_servicio_apache:
-    #Imagen de APACHE con PHP
-    image: php:7.0-apache
+    #Indicamos la carpeta donde guardamos el Docker File
+    build: 
+      context: ./Dockerfile
+      #Indicamos el archivo dockerfile de este contenedor
+      dockerfile: apache_file
+    #Eliminamos esta línea que se sustituye por el dockerfile
+    #image: php:7.0-apache
     container_name: apache-container
     volumes:
       #Carpeta donde guardaremos los archivos web : carpeta interna de Docker
