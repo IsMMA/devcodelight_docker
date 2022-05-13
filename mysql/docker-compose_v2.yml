@@ -1,25 +1,9 @@
 version: "3"
 #Indicamos la version docker compose que utilizamos
+
 #Y luego los servicios que vamos a implementar
 services:
-  contendor_mysql:
-    image: FROM mysql:5.7
-    container_name: mysql-container
-    environment:
-        MYSQL_DATABASE: db
-          # Puedes utilizar el usuario que quieras, en el ejemplo usamos test
-        MYSQL_USER: test
-          # Contraseña para el usuario de MySQL
-        MYSQL_PASSWORD: testp
-          # Contraseña para root
-        MYSQL_ROOT_PASSWORD: root
-    volumes:
-      # Montamos un volumen para MySQL para no perder los datos de bd
-      - ./mysql:/var/lib/mysql
-    expose:
-      - 3306
-    ports:
-      - 3306:3306
+
 #Aquí indicamos el nombre que queramos
   mi_servicio_apache:
     #Indicamos la carpeta donde guardamos el Docker File
@@ -39,5 +23,3 @@ services:
     ports:
       # Puerto de nuestra máquina : puerto dentro de Docker (siempre va a ser el 80 para apache o 443 para SSL)
       - 80:80
-    links: 
-      - contendor_mysql
