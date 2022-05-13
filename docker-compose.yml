@@ -3,7 +3,7 @@ version: "3"
 #Y luego los servicios que vamos a implementar
 services:
   contendor_mysql:
-    image: FROM mysql:5.7
+    image: mysql:5.7
     container_name: mysql-container
     environment:
         MYSQL_DATABASE: db
