@@ -48,3 +48,14 @@ services:
      - 776:80
     links: 
       - contendor_mysql:db
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - ./certs:/etc/letsencrypt/archive
+      - ./www/:/var/www/html
+    depends_on:
+      - mi_servicio_apache
+    command: certonly --webroot --webroot-path=/var/www/html --email contact@tudominio.com --agree-tos --no-eff-email --staging -d tudominio.com
+    #command: certonly --webroot --webroot-path=/var/www/html --email contact@tudominio.com --agree-tos --no-eff-email  -d www.tudominio.com -d tudominio.com
+    #command:  renew --webroot --webroot-path=/var/www/html --no-self-upgrade
